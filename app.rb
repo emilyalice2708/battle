@@ -14,9 +14,19 @@ class Battle < Sinatra::Base
     end 
 
     get '/play' do
+        @player_2_points = 100
         @player_1 = session[:Player_1_Name]
         @player_2 = session[:Player_2_Name]
         erb(:play)
+    end
+
+    post '/pointsMethod' do
+        #@player_2_points = @player_2_points - 30
+        redirect '/attack'
+    end
+
+    get '/attack' do
+        "Attack landed!"
     end
 
     run! if app_file == $0

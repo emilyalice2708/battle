@@ -6,16 +6,24 @@ require './app.rb'
  # end
 # end
 
-feature 'testing players names are displayed on-screen' do
+feature 'players names are displayed on-screen' do
   scenario 'Names entered in a form' do
     sign_in_and_play
     expect(page).to have_content("Mario VS. Luigi")
   end
 end
 
-feature ' Player1 can see Player 2s hit points' do
-  scenario 'game play' do
+feature 'Viewing hit points' do
+  scenario 'View player 2 HP' do
     sign_in_and_play
     expect(page).to have_content("Luigi: 100HP")
+  end
+end
+
+feature 'Attack' do
+  scenario 'Player 1 can attack Player 2' do
+    sign_in_and_play
+    click_button("Attack")
+    expect(page).to have_content("Attack landed!")
   end
 end
