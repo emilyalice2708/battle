@@ -1,9 +1,12 @@
 <h1>And Battle!</h1>
-
-<%=@player_1%> VS. <%=@player_2%>
-
-<%=@player_2%>: <%=@player_2_points%>HP
-
+<div>
+  <p>
+    <%=@player_1.name%> VS. <%=@player_2.name%>
+  </p>
+  <p>
+    <%=@player_2.name%>: <%=@player_2_points%>HP
+  </p>
+</div>
 <form method="post" action="/pointsMethod">
     <input type="submit" name="attack" value="Attack">
 </form>

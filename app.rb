@@ -1,4 +1,5 @@
 require 'sinatra/base'
+require './lib/player'
 
 class Battle < Sinatra::Base
     enable :sessions
@@ -14,19 +15,24 @@ class Battle < Sinatra::Base
     end 
 
     get '/play' do
-        @player_2_points = 100
-        @player_1 = $player_1.name
-        @player_2 = $player_2.name
+        @player_1 = $player_1
+        @player_2 = $player_2
+        @player_2_points = @player_2.points
         erb(:play)
     end
 
     post '/pointsMethod' do
-        #@player_2_points = @player_2_points - 30
+        @player_1 = $player_1
+        @player_2 = $player_2
+        @player_1.attack(@player_2)
+        @player_2_points = @player_2.points
         redirect '/attack'
     end
 
     get '/attack' do
-        "Attack landed!"
+        @player_1 = $player_1
+        @player_2 = $player_2
+        erb(:attack)
     end
 
     run! if app_file == $0
