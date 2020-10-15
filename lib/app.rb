@@ -21,10 +21,10 @@ class Battle < Sinatra::Base
         erb(:play)
     end
 
-    post '/pointsMethod' do
+    post '/attack_received' do
         @player_1 = $player_1
         @player_2 = $player_2
-        @player_1.attack(@player_2)
+        Game.new.attack(@player_2)
         @player_2_points = @player_2.points
         redirect '/attack'
     end

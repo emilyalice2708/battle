@@ -16,13 +16,6 @@ describe Player do
       end
     end
 
-    describe '#attack' do
-      it 'damages other player' do
-        expect(luigi).to receive(:injured)
-        mario.attack(luigi)    
-      end
-    end
-
     describe '#injured' do
       it 'reduces HP points by 10' do
         expect { luigi.injured }.to change { luigi.points }.by(-10)
