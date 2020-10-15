@@ -1,9 +1,19 @@
 require 'game'
 
 describe Game do
-    let(:game) { described_class.new }
     let(:player_1) { double :player }
     let(:player_2) { double :player }
+    let(:game) { described_class.new(player_1, player_2) }
+  
+  describe '#new' do
+    it 'has a player_1' do
+        expect(game.player_1).to eq(player_1)
+    end
+
+    it 'has a player_2' do
+        expect(game.player_2).to eq(player_2)
+    end
+  end
 
   describe '#attack' do
     it 'damages other player' do

@@ -32,6 +32,6 @@ feature 'reducing hit points' do
   scenario 'Player 1 attacks Player 2' do
     sign_in_and_play
     click_button("Attack")
-    expect($player_2.points).to eq(90)
+    expect(page).to have_content(90)
   end
 end

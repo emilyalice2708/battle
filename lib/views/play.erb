@@ -1,10 +1,10 @@
 <h1>And Battle!</h1>
 <div>
   <p>
-    <%=@player_1.name%> VS. <%=@player_2.name%>
+    <%=@game.player_1.name%> VS. <%=@game.player_2.name%>
   </p>
   <p>
-    <%=@player_2.name%>: <%=@player_2_points%>HP
+    <%=@game.player_2.name%>: <%=@game.player_2.points%>HP
   </p>
 </div>
 <form method="post" action="/attack_received">
