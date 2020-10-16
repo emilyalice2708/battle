@@ -37,6 +37,7 @@ class Battle < Sinatra::Base
 
     get '/game_over' do
         @game = $game
+        @game.switch_turn
         erb(:game_over)
     end
 
