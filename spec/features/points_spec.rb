@@ -3,6 +3,11 @@ feature 'Viewing hit points' do
       sign_in_and_play
       expect(page).to have_content("Luigi: 100HP")
     end
+
+    scenario 'View player 1 HP' do
+      sign_in_and_play
+      expect(page).to have_content("Mario: 100HP")
+    end
   end
 
 feature 'reducing hit points' do
