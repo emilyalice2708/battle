@@ -22,7 +22,7 @@ class Battle < Sinatra::Base
 
     post '/attack_received' do
         @game = $game
-        @game.attack(@game.player_2)
+        @game.current_turn == @game.player_1 ? @game.attack(@game.player_2) : @game.attack(@game.player_1)        
         @game.switch_turn
         redirect '/attack'
     end

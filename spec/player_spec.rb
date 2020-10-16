@@ -17,7 +17,8 @@ describe Player do
     end
 
     describe '#injured' do
-      it 'reduces HP points by 10' do
+      it 'reduces HP points' do
+        allow(Kernel).to receive(:rand).and_return(10)
         expect { luigi.injured }.to change { luigi.points }.by(-10)
       end
     end

@@ -13,7 +13,17 @@ feature 'Viewing hit points' do
 feature 'reducing hit points' do
     scenario 'Player 1 attacks Player 2' do
       sign_in_and_play
+      allow(Kernel).to receive(:rand).and_return(10)
       click_button("Attack")
-      expect(page).to have_content(90)
+      expect(page).to have_content("Luigi: 90")
+    end
+
+    scenario 'Player 2 can attack Player 1' do
+      sign_in_and_play
+      allow(Kernel).to receive(:rand).and_return(10)
+      click_button("Attack")
+      click_link("Continue")
+      click_button("Attack")
+      expect(page).to have_content("Mario: 90")
     end
   end

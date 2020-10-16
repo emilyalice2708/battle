@@ -10,7 +10,8 @@ class Player
     end
 
     def injured
-        @points -=10
+        @damage = Kernel.rand(20)
+        @points -= @damage
     end
 
 end
