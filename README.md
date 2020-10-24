@@ -8,6 +8,25 @@
 - Test apps that have user interaction and visual output.
 - Trace data between the browser and server.
 
+## How To Use
+1. Clone this repository:
+```
+git clone
+```
+2. Run bundle install:
+```
+bundle install
+```
+3. Run configuration file:
+```
+rackup config.ru
+```
+4. Visit localhost in your browser:
+```
+http://localhost:9292/
+```
+5. Enter player names and play!
+
 ## User Stories
 
 ```
